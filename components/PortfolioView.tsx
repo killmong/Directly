@@ -2,11 +2,11 @@
 
 import React, { useState, useEffect } from "react";
 import { Eye } from "lucide-react";
-import { motion } from "motion/react";
+import { motion,Variants } from "motion/react";
 import { Video, MousePosition } from "@/lib/types";
 
 // Animation Variants
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -14,7 +14,7 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants : Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 300, damping: 24 } }
 };
@@ -45,7 +45,7 @@ export default function PortfolioView({ videos, setPlayingVideo }: { videos: Vid
           width: isHoveringVideo ? 80 : 20,
           height: isHoveringVideo ? 80 : 20,
           opacity: isHoveringVideo ? 0.2 : 1,
-          x: "-50%", y: "-50%" 
+          // x: "-50%", y: "-50%" 
         }}
         transition={{ type: "tween", ease: "backOut", duration: 0.15 }}
       />
@@ -63,7 +63,7 @@ export default function PortfolioView({ videos, setPlayingVideo }: { videos: Vid
         Play
       </motion.div>
 
-      <div className="max-w-[1400px] mx-auto relative z-10">
+      <div className="max-w-350 mx-auto relative z-10">
         <header className="mb-16 md:mb-24 flex justify-between items-end border-b border-white/10 pb-12">
           <h1 className="text-5xl md:text-7xl font-bold text-white uppercase">Selected Works.</h1>
         </header>
